@@ -4,14 +4,19 @@ void sendMessage(void* task)
 {
     struct myTask_handler *myTask = (struct myTask_handler*) task;
     char *msg = NULL;
-
-    prepareMessage(myTask->task, msg);
+    printf("sendMessage(): ");
+    printEntry(myTask->task);
+    //prepareMessage(myTask->task, msg);
     //encrypt message here
         //encryptMessage(msg);
     //send to client
-    sendTaskToClient(msg);
+    //sendTaskToClient(msg);
     //free up memory
     cleanup(myTask);
+    if(msg != NULL)
+    {
+        free(msg);
+    }
 }
 /* TODO: create the message
 */

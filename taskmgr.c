@@ -71,7 +71,7 @@ int main()
 */
     printf("\n\n\nProcess Tasking\n");
     processTasking();
-    //prepareToSendTasking();
+    prepareToSendTasking();
 
 
     deleteQueue(process_head);

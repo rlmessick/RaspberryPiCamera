@@ -7,12 +7,13 @@ void prepareToSendTasking()
 
     while(1)
     {
-        
         myTask = NULL;
         // Check Queue for tasking
         while(queueEmpty(send_head)==1)
         {
-            sleep(5000);
+            sleep(5);
+            printf("prepareToSendTasking:sleeping\n");
+            return;
         }
         
         //pop a tasking off queue
