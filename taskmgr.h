@@ -1,7 +1,7 @@
 #ifndef TASKMGR_H
 #define TASKMGR_H
 /*
-#include <comms/comms.h>   // communication btwn LP and Pi
+#include <comms/comms.h>   // communication btwn client and Pi
 #include <utils/utils.h>  //shared objects need between files 
 */
 #include "utils.h"      // local shared objects
