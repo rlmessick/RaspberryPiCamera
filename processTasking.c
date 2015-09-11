@@ -13,6 +13,7 @@
         {
                 sleep(5);
                 printf("sleeping\n");
+		return;
         }
 
         //pop a task
