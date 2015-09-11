@@ -12,7 +12,7 @@ void printEntry(struct spy_task_handler *task)
 {
     printf("JOB_ID: %d \nTASK_ID: %d\n", task->job_id, task->task_id);
     printf("Status:%d\n", task->status);
-    printf("File location %s/%s\n",task->filepath,task->file);
+    printf("File location %s%s\n",task->filepath,task->file);
 }
 /*
 *   TODO: finsih this function
