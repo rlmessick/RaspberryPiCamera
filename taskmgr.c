@@ -13,15 +13,22 @@
 
 
 */
-int main()
+int main(int argc, char* argv[])
 {
     enum HRet result = success;
-    int serverPort =  8888;
-    int outPort = 8889;
+    int serverPort;
+    int outPort;
     char client[10];
     pthread_t thread1, thread2, thread3;
 
-    strcpy(client, "192.168.1.12\n");
+    if(argc != 4)
+    {
+        printf("usage: ./progam client_ip_address client_port server_port\n");
+        return 1;
+    }
+    strcpy(client, argv[1]);
+    outPort = atoi(argv[2]);
+    serverPort = atoi(argv[3]);
 
     setIPAddr(client_ip, client);
     setPort(client_port, outPort);
@@ -30,18 +37,18 @@ int main()
     printf("Hello world\n Look at me now!!\n I'm getting paper.\n");
     //init the queues and locks
     initialize();
-/*    //needs to be in a thread
+    //needs to be in a thread
     //server thread
     pthread_create(&thread1, NULL, (void*) &initServer, NULL );
-*/
+
     //needs to be in a thread
     //to client thread
-//    pthread_create(&thread1, NULL, (void*) &prepareToSendTasking, NULL);
+    pthread_create(&thread1, NULL, (void*) &prepareToSendTasking, NULL);
 
     //processThread
-  //  pthread_create(&thread1, NULL, (void*) &processTasking, NULL);
+    pthread_create(&thread1, NULL, (void*) &processTasking, NULL);
 
-    printf("Number of Entries in queue: %d\n", 
+/*    printf("Number of Entries in queue: %d\n", 
             numberEntries(process_head));
     result = getTasking(0x0);
     printf("Number of Entries in queue: %d\n", 
@@ -68,16 +75,17 @@ int main()
 /*
     printf("\n\n\nDelete Queue\n");
     deleteQueue(process_head);
-*/
+
     printf("\n\n\nProcess Tasking\n");
     processTasking();
-    //prepareToSendTasking();
+    prepareToSendTasking();
 
 
     deleteQueue(process_head);
     deleteQueue(send_head);
     printf("Number of Entries in queue: %d\n", 
             numberEntries(process_head));
+*/
     if(result == success)
     {
         printf("mission completed for the day\n");
@@ -91,6 +99,7 @@ int main()
         //recieveTasking
         //prepareToSendTasking
         //TEMP:taskingCommand (recieveTasking)
+
     return 0;
 }
 
