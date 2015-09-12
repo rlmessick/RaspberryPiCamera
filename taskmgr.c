@@ -43,11 +43,14 @@ int main(int argc, char* argv[])
 
     //needs to be in a thread
     //to client thread
-    pthread_create(&thread1, NULL, (void*) &prepareToSendTasking, NULL);
+    pthread_create(&thread2, NULL, (void*) &prepareToSendTasking, NULL);
 
     //processThread
-    pthread_create(&thread1, NULL, (void*) &processTasking, NULL);
+    pthread_create(&thread3, NULL, (void*) &processTasking, NULL);
 
+    pthread_join(thread1, NULL);
+    pthread_join(thread2, NULL);
+    pthread_join(thread3, NULL);
 /*    printf("Number of Entries in queue: %d\n", 
             numberEntries(process_head));
     result = getTasking(0x0);
@@ -71,7 +74,7 @@ int main(int argc, char* argv[])
 
     printf("\n\n\nPrint Queue\n");    
     printQueue(process_head);
-
+*/
 /*
     printf("\n\n\nDelete Queue\n");
     deleteQueue(process_head);

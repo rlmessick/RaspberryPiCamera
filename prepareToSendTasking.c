@@ -12,12 +12,7 @@ void prepareToSendTasking()
         while(queueEmpty(send_head)==1)
         {
             sleep(5);
-<<<<<<< HEAD
-	    return;
-=======
             printf("prepareToSendTasking:sleeping\n");
-            return;
->>>>>>> d7234ad2671565a37b0b847d62538561e82bf623
         }
         
         //pop a tasking off queue

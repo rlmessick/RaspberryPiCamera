@@ -27,13 +27,7 @@
         while( queueEmpty(process_head) ==1)
         {
                 sleep(5);
-<<<<<<< HEAD
-                printf("sleeping\n");
-		return;
-=======
                 printf("processTasking:sleeping\n");
-                return;
->>>>>>> d7234ad2671565a37b0b847d62538561e82bf623
         }
 
         //pop a task
